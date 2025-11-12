@@ -1,4 +1,4 @@
-# go-testcontainers-postgres
+# jp-go-testcontainers-postgres
 
 PostgreSQL testcontainer utilities for Go tests with PostGIS support, automatic migration detection and running, and cleanup helpers for test isolation.
 
@@ -48,7 +48,7 @@ Download and install Docker Desktop from <https://www.docker.com/products/docker
 ## Installation
 
 ```bash
-go get github.com/JohnPlummer/go-testcontainers-postgres
+go get github.com/JohnPlummer/jp-go-testcontainers-postgres
 ```
 
 ## Quick Start
@@ -60,7 +60,7 @@ import (
  "context"
  "testing"
 
- postgres "github.com/JohnPlummer/go-testcontainers-postgres"
+ postgres "github.com/JohnPlummer/jp-go-testcontainers-postgres"
 )
 
 func TestMyFunction(t *testing.T) {
@@ -569,4 +569,4 @@ Contributions welcome! Please open an issue or pull request on GitHub.
 
 ## Repository
 
-<https://github.com/JohnPlummer/go-testcontainers-postgres>
+<https://github.com/JohnPlummer/jp-go-testcontainers-postgres>

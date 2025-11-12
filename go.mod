@@ -1,4 +1,4 @@
-module github.com/JohnPlummer/go-testcontainers-postgres
+module github.com/JohnPlummer/jp-go-testcontainers-postgres
 
 go 1.24.0
 

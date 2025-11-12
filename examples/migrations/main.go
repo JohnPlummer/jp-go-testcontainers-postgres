@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	postgres "github.com/JohnPlummer/go-testcontainers-postgres"
+	postgres "github.com/JohnPlummer/jp-go-testcontainers-postgres"
 )
 
 func main() {

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	postgres "github.com/JohnPlummer/go-testcontainers-postgres"
+	postgres "github.com/JohnPlummer/jp-go-testcontainers-postgres"
 )
 
 func main() {
