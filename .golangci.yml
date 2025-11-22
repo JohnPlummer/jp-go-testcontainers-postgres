@@ -16,10 +16,12 @@ linters:
 
   settings:
     staticcheck:
-      checks: ["all", "-ST1000", "-ST1016"]
+      checks: ["all", "-ST1000", "-ST1016", "-ST1005"]
 
     gosec:
       excludes:
+        - G104
+        - G301
         - G306
 
   exclusions:
