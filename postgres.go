@@ -417,10 +417,11 @@ func runMigrations(databaseURL, migrationsPath string) error {
 //
 // First checks for MIGRATIONS_PATH environment variable, then falls back to
 // walking up the directory tree from the caller's location to find the project
-// root (marked by .git directory), then searches for common migration paths:
+// root (marked by .git), then searches for common migration paths:
 // database/migrations, migrations, sql/migrations, db/migrations.
 //
 // Uses .git instead of go.mod for monorepo awareness (multiple go.mod files exist).
+// Supports both normal git repos (.git directory) and git worktrees (.git file).
 //
 // Returns "database/migrations" as fallback if no migrations directory found.
 func FindMigrationsPath() string {
@@ -449,10 +450,11 @@ func FindMigrationsPath() string {
 
 	// Walk up directory tree to find project root (indicated by .git)
 	// We use .git instead of go.mod because this is a monorepo with multiple go.mod files
+	// Note: .git can be a directory (normal repo) or a file (git worktree with gitdir pointer)
 	dir := filepath.Dir(filename)
 	for {
-		// Check if this is project root (has .git directory)
-		if info, err := os.Stat(filepath.Join(dir, ".git")); err == nil && info.IsDir() {
+		// Check if this is project root (has .git - either directory or worktree file)
+		if _, err := os.Stat(filepath.Join(dir, ".git")); err == nil {
 			// Found project root, try migration paths
 			for _, path := range paths {
 				fullPath := filepath.Join(dir, path)
